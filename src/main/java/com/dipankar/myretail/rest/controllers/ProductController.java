@@ -1,13 +1,14 @@
 package com.dipankar.myretail.rest.controllers;
 
+import com.dipankar.myretail.data.entities.Product;
 import com.dipankar.myretail.rest.dto.ProductDTO;
 import com.dipankar.myretail.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -18,7 +19,19 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public Set<ProductDTO> productsList() {
-        return this.productService.productList().stream().map(ProductDTO::convertEntity).collect(Collectors.toSet());
+        return this.productService.productList()
+                .stream()
+                .map(ProductDTO::convertEntity).collect(Collectors.toSet());
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void save(Product product) {
+        if (product.getId() == null) {
+            product.setPublicId(UUID.randomUUID().toString());
+            this.productService.save(product);
+        }
     }
 }

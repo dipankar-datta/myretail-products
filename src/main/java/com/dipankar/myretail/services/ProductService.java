@@ -16,4 +16,8 @@ public class ProductService {
     public Set<Product> productList() {
         return this.productRepository.productsList();
     }
+
+    public Product save(Product p){
+        return this.productRepository.save(p);
+    }
 }
