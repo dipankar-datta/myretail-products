@@ -15,7 +15,6 @@ public class ProductDTO {
     private String description;
     private LocalDateTime creationTime;
     private LocalDateTime updationTime;
-    private Float discountPercentage;
 
     public ProductDTO(
             String pid,
@@ -25,8 +24,7 @@ public class ProductDTO {
             String name,
             String description,
             LocalDateTime creationTime,
-            LocalDateTime updationTime,
-            Float discountPercentage) {
+            LocalDateTime updationTime) {
         this.pid = pid;
         this.category = category;
         this.subCategory = subCategory;
@@ -35,7 +33,6 @@ public class ProductDTO {
         this.description = description;
         this.creationTime = creationTime;
         this.updationTime = updationTime;
-        this.discountPercentage = discountPercentage;
     }
 
     public static ProductDTO convertEntity(Product product) {
@@ -47,8 +44,7 @@ public class ProductDTO {
                 product.getName(),
                 product.getDescription(),
                 product.getCreationTime(),
-                product.getUpdationTime(),
-                product.getDiscountPercentage()
+                product.getUpdationTime()
         );
     }
 }

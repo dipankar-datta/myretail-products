@@ -7,17 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service
-public class ProductService {
 
-    @Autowired
-    private ProductRepository productRepository;
-
-    public Set<Product> productList() {
-        return this.productRepository.productsList();
-    }
-
-    public Product save(Product p){
-        return this.productRepository.save(p);
-    }
+public interface ProductService extends BasicCrudService<Product>{
 }

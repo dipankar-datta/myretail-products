@@ -3,6 +3,7 @@ package com.dipankar.myretail.data.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -30,9 +31,11 @@ public class Product {
     private SubCategory subcategory;
 
     @Column(name = "name")
+    @NotNull(message = "Product name cannot be empty")
     private String name;
 
     @Column(name = "description")
+    @NotNull(message = "Product description cannot be empty")
     private String description;
 
     @Column(name = "creation_time")
@@ -40,7 +43,4 @@ public class Product {
 
     @Column(name = "updation_time")
     private LocalDateTime updationTime;
-
-    @Column(name = "discount_percentage")
-    private Float discountPercentage;
 }
