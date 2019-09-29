@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
@@ -37,7 +38,7 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void create(Product product) {
+    public void create(@Valid @RequestBody Product product) {
         ExceptionsUtility.exceptionIfIdExistsForCreate(product.getId());
         product.setCreationTime(LocalDateTime.now());
         product.setUpdationTime(LocalDateTime.now());
@@ -46,7 +47,7 @@ public class ProductController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public void update(Product product) {
+    public void update(@Valid @RequestBody Product product) {
         ExceptionsUtility.exceptionIfIdDoesntExistForUpdate(product.getId());
         if (product.getCreationTime() == null) product.setCreationTime(LocalDateTime.now());
         product.setUpdationTime(LocalDateTime.now());

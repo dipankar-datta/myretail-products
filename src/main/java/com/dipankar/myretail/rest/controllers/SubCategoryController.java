@@ -2,12 +2,14 @@ package com.dipankar.myretail.rest.controllers;
 
 import com.dipankar.myretail.data.entities.Category;
 import com.dipankar.myretail.data.entities.SubCategory;
+import com.dipankar.myretail.exceptions.ExceptionsUtility;
 import com.dipankar.myretail.services.CategoryService;
 import com.dipankar.myretail.services.SubCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
@@ -29,10 +31,16 @@ public class SubCategoryController {
         return subCategoryService.getById(id).get();
     }
 
-    @PutMapping
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public SubCategory save(SubCategory subCategory) {
+    public SubCategory create(@Valid @RequestBody SubCategory subCategory) {
+        ExceptionsUtility.exceptionIfIdExistsForCreate(subCategory.getId());
+        return subCategoryService.save(subCategory);
+    }
+
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    public SubCategory update(@Valid @RequestBody SubCategory subCategory) {
         return subCategoryService.save(subCategory);
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
@@ -30,20 +31,20 @@ public class SegmentController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public Segment create(Segment segment) {
+    public Segment create(@Valid @RequestBody Segment segment) {
         ExceptionsUtility.exceptionIfIdExistsForCreate(segment.getId());
         return segmentService.save(segment);
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public Segment update(Segment segment) {
+    public Segment update(@Valid @RequestBody Segment segment) {
         return segmentService.save(segment);
     }
 
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
-    public void deleteById(Segment segment) {
+    public void deleteById(@Valid @RequestBody Segment segment) {
         segmentService.delete(segment);
     }
 
