@@ -1,0 +1,8 @@
+Command for generating Schema changelog
+mvn liquibase:generateChangeLog -e
+
+Command for generating data dump changelog
+mvn liquibase:generateChangeLog -Dliquibase.diffTypes=data -e
+
+Here '-e' stands for detailed log in the terminal while executing the command.
+This gives more details in case of exceptions. This option can be ignored.

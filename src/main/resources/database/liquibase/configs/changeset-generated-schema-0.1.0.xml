@@ -1,0 +1,179 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="datta (generated)" id="1579106721995-1">
+        <createTable tableName="categories">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="updated_by" type="VARCHAR(50)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="creation_time" type="datetime"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updation_time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-2">
+        <createTable tableName="category_subcategory_map">
+            <column name="category" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="subcategory" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="updated_by" type="VARCHAR(50)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="creation_time" type="datetime"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updation_time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-3">
+        <createTable tableName="products">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(50)"/>
+            <column name="public_id" type="VARCHAR(200)"/>
+            <column name="segment" type="BIGINT"/>
+            <column name="category" type="BIGINT"/>
+            <column name="subcategory" type="BIGINT"/>
+            <column name="name" type="VARCHAR(200)"/>
+            <column name="description" type="VARCHAR(500)"/>
+            <column name="discount_percentage" type="FLOAT(12)"/>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="updated_by" type="VARCHAR(50)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="creation_time" type="datetime"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updation_time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-4">
+        <createTable tableName="segments">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="updated_by" type="VARCHAR(50)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="creation_time" type="datetime"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updation_time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-5">
+        <createTable tableName="stock_details">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column defaultValueNumeric="0" name="product" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit" type="BIGINT"/>
+            <column name="quantity" type="INT"/>
+            <column defaultValueNumeric="0.0" name="price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="discount_percentage" type="FLOAT(12)"/>
+            <column name="discount_price" type="DOUBLE"/>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="updated_by" type="VARCHAR(50)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="creation_time" type="datetime"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updation_time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-6">
+        <createTable tableName="subcategories">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)"/>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="updated_by" type="VARCHAR(50)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="creation_time" type="datetime"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updation_time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-7">
+        <createTable tableName="units">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="unit" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="updated_by" type="VARCHAR(50)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="creation_time" type="datetime"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updation_time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-8">
+        <createIndex indexName="FK_StockDetails_Unit" tableName="stock_details">
+            <column name="unit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-9">
+        <createIndex indexName="FK__categories" tableName="category_subcategory_map">
+            <column name="category"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-10">
+        <createIndex indexName="FK__proucts" tableName="stock_details">
+            <column defaultValueNumeric="0" name="product"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-11">
+        <createIndex indexName="FK__subcategories" tableName="category_subcategory_map">
+            <column name="subcategory"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-12">
+        <createIndex indexName="FK_products_segments" tableName="products">
+            <column name="segment"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-13">
+        <createIndex indexName="FK_proucts_categories" tableName="products">
+            <column name="category"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-14">
+        <createIndex indexName="FK_proucts_subcategories" tableName="products">
+            <column name="subcategory"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-15">
+        <createIndex indexName="code" tableName="categories">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-16">
+        <createIndex indexName="code" tableName="subcategories">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-17">
+        <addForeignKeyConstraint baseColumnNames="category" baseTableName="category_subcategory_map" constraintName="FK_Category_Map" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="categories" validate="true"/>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-18">
+        <addForeignKeyConstraint baseColumnNames="category" baseTableName="products" constraintName="FK_Product_Category" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="categories" validate="true"/>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-19">
+        <addForeignKeyConstraint baseColumnNames="segment" baseTableName="products" constraintName="FK_Product_Segment" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="segments" validate="true"/>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-20">
+        <addForeignKeyConstraint baseColumnNames="subcategory" baseTableName="products" constraintName="FK_Product_Subcategory" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="subcategories" validate="true"/>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-21">
+        <addForeignKeyConstraint baseColumnNames="product" baseTableName="stock_details" constraintName="FK_StockDetails_Product" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="products" validate="true"/>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-22">
+        <addForeignKeyConstraint baseColumnNames="unit" baseTableName="stock_details" constraintName="FK_StockDetails_Unit" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="units" validate="true"/>
+    </changeSet>
+    <changeSet author="datta (generated)" id="1579106721995-23">
+        <addForeignKeyConstraint baseColumnNames="subcategory" baseTableName="category_subcategory_map" constraintName="FK_Subcategory_Map" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="subcategories" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
