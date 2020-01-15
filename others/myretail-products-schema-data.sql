@@ -20,7 +20,7 @@ USE `myretail_products`;
 -- Dumping structure for table myretail_products.categories
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
-  `id` bigint(20) NOT NULL DEFAULT '0',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `code` varchar(10) DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table myretail_products.categories: ~2 rows (approximately)
 DELETE FROM `categories`;
@@ -100,13 +100,13 @@ INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`,
 -- Dumping structure for table myretail_products.products
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` bigint(20) NOT NULL DEFAULT '0',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `code` varchar(50) DEFAULT NULL,
   `public_id` varchar(200) DEFAULT NULL,
   `segment` bigint(20) DEFAULT NULL,
   `category` bigint(20) DEFAULT NULL,
   `subcategory` bigint(20) DEFAULT NULL,
-  `name` varchar(200) NOT NULL,
+  `name` varchar(200) DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
   `discount_percentage` float DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   CONSTRAINT `FK_Product_Category` FOREIGN KEY (`category`) REFERENCES `categories` (`id`),
   CONSTRAINT `FK_Product_Segment` FOREIGN KEY (`segment`) REFERENCES `segments` (`id`),
   CONSTRAINT `FK_Product_Subcategory` FOREIGN KEY (`subcategory`) REFERENCES `subcategories` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=9240 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table myretail_products.products: ~1,905 rows (approximately)
 DELETE FROM `products`;
@@ -3831,7 +3831,7 @@ INSERT INTO `products` (`id`, `code`, `public_id`, `segment`, `category`, `subca
 -- Dumping structure for table myretail_products.segments
 DROP TABLE IF EXISTS `segments`;
 CREATE TABLE IF NOT EXISTS `segments` (
-  `id` bigint(20) NOT NULL DEFAULT '0',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
@@ -3840,7 +3840,7 @@ CREATE TABLE IF NOT EXISTS `segments` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table myretail_products.segments: ~2 rows (approximately)
 DELETE FROM `segments`;
@@ -3856,7 +3856,7 @@ INSERT INTO `segments` (`id`, `name`, `created_by`, `updated_by`, `creation_time
 -- Dumping structure for table myretail_products.stock_details
 DROP TABLE IF EXISTS `stock_details`;
 CREATE TABLE IF NOT EXISTS `stock_details` (
-  `id` bigint(20) NOT NULL DEFAULT '0',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product` bigint(20) NOT NULL DEFAULT '0',
   `unit` bigint(20) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
@@ -3883,8 +3883,8 @@ DELETE FROM `stock_details`;
 -- Dumping structure for table myretail_products.subcategories
 DROP TABLE IF EXISTS `subcategories`;
 CREATE TABLE IF NOT EXISTS `subcategories` (
-  `id` bigint(20) NOT NULL DEFAULT '0',
-  `name` varchar(100) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
   `code` varchar(10) DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
@@ -3893,7 +3893,7 @@ CREATE TABLE IF NOT EXISTS `subcategories` (
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table myretail_products.subcategories: ~17 rows (approximately)
 DELETE FROM `subcategories`;
@@ -3937,7 +3937,7 @@ INSERT INTO `subcategories` (`id`, `name`, `code`, `created_by`, `updated_by`, `
 -- Dumping structure for table myretail_products.units
 DROP TABLE IF EXISTS `units`;
 CREATE TABLE IF NOT EXISTS `units` (
-  `id` bigint(20) NOT NULL DEFAULT '0',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `unit` varchar(50) NOT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
