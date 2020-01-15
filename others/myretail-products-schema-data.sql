@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `code` varchar(10) DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
-  `creation_time` datetime DEFAULT NULL,
-  `updation_time` datetime DEFAULT NULL,
+  `creation_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `code` (`code`)
@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS `category_subcategory_map` (
   `subcategory` bigint(20) NOT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
-  `creaion_time` datetime DEFAULT NULL,
-  `updation_time` datetime DEFAULT NULL,
+  `creation_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` datetime DEFAULT CURRENT_TIMESTAMP,
   KEY `FK__categories` (`category`),
   KEY `FK__subcategories` (`subcategory`),
   CONSTRAINT `FK_Category_Map` FOREIGN KEY (`category`) REFERENCES `categories` (`id`),
@@ -61,39 +61,39 @@ CREATE TABLE IF NOT EXISTS `category_subcategory_map` (
 -- Dumping data for table myretail_products.category_subcategory_map: ~17 rows (approximately)
 DELETE FROM `category_subcategory_map`;
 /*!40000 ALTER TABLE `category_subcategory_map` DISABLE KEYS */;
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(34, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(34, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(34, 14, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(34, 15, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(35, 9, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(35, 10, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(35, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(35, 3, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(35, 4, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(35, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(35, 12, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(35, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(35, 16, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(36, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(36, 13, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(36, 8, NULL, NULL, NULL, NULL);
-INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creaion_time`, `updation_time`) VALUES
+INSERT INTO `category_subcategory_map` (`category`, `subcategory`, `created_by`, `updated_by`, `creation_time`, `updation_time`) VALUES
 	(36, 17, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `category_subcategory_map` ENABLE KEYS */;
 
@@ -111,8 +111,8 @@ CREATE TABLE IF NOT EXISTS `products` (
   `discount_percentage` float DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
-  `creation_time` datetime DEFAULT NULL,
-  `updation_time` datetime DEFAULT NULL,
+  `creation_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `FK_proucts_categories` (`category`),
@@ -3835,8 +3835,8 @@ CREATE TABLE IF NOT EXISTS `segments` (
   `name` varchar(100) NOT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
-  `creation_time` datetime DEFAULT NULL,
-  `updation_time` datetime DEFAULT NULL,
+  `creation_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `id` (`id`)
@@ -3865,8 +3865,8 @@ CREATE TABLE IF NOT EXISTS `stock_details` (
   `discount_price` double DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
-  `creation_time` datetime DEFAULT NULL,
-  `updation_time` datetime DEFAULT NULL,
+  `creation_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `FK__proucts` (`product`),
@@ -3888,8 +3888,8 @@ CREATE TABLE IF NOT EXISTS `subcategories` (
   `code` varchar(10) DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
-  `creation_time` datetime DEFAULT NULL,
-  `updation_time` datetime DEFAULT NULL,
+  `creation_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `code` (`code`)
@@ -3941,8 +3941,8 @@ CREATE TABLE IF NOT EXISTS `units` (
   `unit` varchar(50) NOT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
-  `creation_time` datetime DEFAULT NULL,
-  `updation_time` datetime DEFAULT NULL,
+  `creation_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unit` (`unit`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
