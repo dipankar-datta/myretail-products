@@ -1,7 +1,6 @@
 package com.dipankar.myretail.rest.controllers;
 
 import com.dipankar.myretail.data.entities.Product;
-import com.dipankar.myretail.exceptions.CustomException;
 import com.dipankar.myretail.exceptions.ExceptionsUtility;
 import com.dipankar.myretail.rest.dto.ProductDTO;
 import com.dipankar.myretail.services.ProductService;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.Set;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -27,7 +25,7 @@ public class ProductController {
     public Set<ProductDTO> productsList() {
         return this.productService.list()
                 .stream()
-                .map(ProductDTO::convertEntity).collect(Collectors.toSet());
+                .map(ProductDTO::convertEntityToDto).collect(Collectors.toSet());
     }
 
     @GetMapping("/{id}")

@@ -35,7 +35,7 @@ public class ProductDTO {
         this.updationTime = updationTime;
     }
 
-    public static ProductDTO convertEntity(Product product) {
+    public static ProductDTO convertEntityToDto(Product product) {
         return new ProductDTO(
                 product.getPublicId(),
                 product.getCategory().getName(),

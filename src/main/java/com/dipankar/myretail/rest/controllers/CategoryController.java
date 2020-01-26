@@ -42,6 +42,7 @@ public class CategoryController {
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public Category update(@Valid @RequestBody Category category) {
+        ExceptionsUtility.exceptionIfIdDoesntExistForUpdate(category.getId());
         return categoryService.save(category);
     }
 

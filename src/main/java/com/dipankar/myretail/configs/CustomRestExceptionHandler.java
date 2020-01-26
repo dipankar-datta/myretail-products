@@ -1,5 +1,6 @@
 package com.dipankar.myretail.configs;
 
+import com.dipankar.myretail.exceptions.BadClientDataException;
 import com.dipankar.myretail.exceptions.CustomException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,12 @@ public class CustomRestExceptionHandler {
     public final ResponseEntity<Object> emptyResultDataAccessExceptionHandler(
             CustomException ex, WebRequest request) {
         return new ResponseEntity(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(BadClientDataException.class)
+    public final ResponseEntity<Object> emptyResultDataAccessExceptionHandler(
+            BadClientDataException ex, WebRequest request) {
+        return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
